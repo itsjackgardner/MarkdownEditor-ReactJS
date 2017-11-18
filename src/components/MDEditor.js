@@ -2,39 +2,33 @@ import React, { Component } from 'react';
 import {
   Editor,
   EditorState,
-  SelectionState,
   Modifier
 } from 'draft-js';
-import insertMDchars from '../utils/key_bindings.js';
+import { insertMDchars, textToInsert, commands } from '../utils/keyBindings.js';
 
-class MDEditor extends Component {
+export default class MDEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      editorState: EditorState.createEmpty(),
-      selectionState: SelectionState.createEmpty()
-    };
+    this.state = {editorState: EditorState.createEmpty()};
     this.onChange = (editorState) => this.setState({editorState});
   }
 
   handleKeyCommand(command) {
-    var editorState = this.state.editorState;
-    if (command === 'bold') {
+    const { editorState } = this.state;
+    if (commands.indexOf(command) !== -1) {
       const newContent = Modifier.insertText(
         editorState.getCurrentContent(),
         editorState.getSelection(),
-        '**'
+        textToInsert(command)
       );
-      editorState = EditorState.push(editorState, newContent);
-      this.onChange(editorState);
-      var newSelection = this.state.selectionState.getEndOffset() - 1;
-      this.setState({selectionState: newSelection});
+      this.onChange(EditorState.push(editorState, newContent));
       return true;
     }
     return false;
   }
 
   render() {
+    console.log('hi?');
     return (
       <div className="editor" id="MDEditor">
         <Editor
@@ -43,11 +37,8 @@ class MDEditor extends Component {
           keyBindingFn={insertMDchars}
           onChange={this.onChange}
           placeholder="Write something ... "
-          ref="editor"
         />
       </div>
     );
   }
 }
-
-export default MDEditor;
