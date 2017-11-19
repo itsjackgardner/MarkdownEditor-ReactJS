@@ -9,7 +9,7 @@ import {
   textToInsert,
   commands
 } from '../utils/keyBindings.js';
-import convertToMD from '../utils/MDParser.js';
+import previewMD from '../utils/convertToMD.js';
 
 export default class MDEditor extends Component {
   constructor(props) {
@@ -21,8 +21,8 @@ export default class MDEditor extends Component {
   }
 
   _onChange(newState) {
-    var preview = document.getElementById('preview');
-    preview.innerHTML = convertToMD(newState.getCurrentContent());
+    this.setState({editorState: newState});
+    previewMD(newState.getCurrentContent());
   }
 
   _handleKeyCommand(command) {
@@ -43,7 +43,7 @@ export default class MDEditor extends Component {
 
   render() {
     return (
-      <div className="editor" id="MDEditor">
+      <div className="editor" id="editor">
         <Editor
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
