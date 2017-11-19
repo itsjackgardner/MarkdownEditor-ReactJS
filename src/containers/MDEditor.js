@@ -28,14 +28,12 @@ export default class MDEditor extends Component {
   _handleKeyCommand(command) {
     const { editorState } = this.state;
     if (commands.indexOf(command) !== -1) {
-      this.setState({editorState: EditorState.push(
-        editorState,
-        Modifier.insertText(
-          editorState.getCurrentContent(),
-          editorState.getSelection(),
-          textToInsert(command)
-        )
-      )});
+      let index = textToInsert(command).length/2;
+      var newState = appendText(editorState, textToInsert(command).substring(0, index));
+      const newSelection = newState.getSelection();
+      newState = appendText(newState, textToInsert(command).substring(index));
+      newState = EditorState.forceSelection(newState, newSelection);
+      this.setState({editorState: newState});
       return true;
     }
     return false;
@@ -54,4 +52,15 @@ export default class MDEditor extends Component {
       </div>
     );
   }
+}
+
+function appendText(editorState, text): EditorState {
+  return EditorState.push(
+    editorState,
+    Modifier.insertText(
+      editorState.getCurrentContent(),
+      editorState.getSelection(),
+      text
+    )
+  );
 }
