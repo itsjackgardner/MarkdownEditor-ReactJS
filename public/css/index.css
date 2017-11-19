@@ -1,14 +1,20 @@
-@font-face {
-  font-family: 'Inconsolata', monospace;
-  src: url('https://fonts.googleapis.com/css?family=Inconsolata');
-}
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Proza+Libre');
 
 body {
-  font-family: 'Inconsolata', monospace;
-  font-size: 40px;
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 30px;
   margin-left: 50px;
   margin-top: 50px;
   margin-right: 50px;
+}
+
+a {
+  text-decoration: underline;
+}
+
+#header {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 50px;
 }
 
 #editor_container, #preview_container {
