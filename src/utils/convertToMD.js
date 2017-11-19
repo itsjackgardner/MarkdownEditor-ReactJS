@@ -1,4 +1,4 @@
-import { EditorState, ContentState } from 'draft-js';
+import { ContentState } from 'draft-js';
 import { markdown } from 'markdown';
 
 function convertToMD(content: ContentState): string {

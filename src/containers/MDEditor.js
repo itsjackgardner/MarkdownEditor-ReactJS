@@ -22,7 +22,6 @@ export default class MDEditor extends Component {
 
   _onChange(newState) {
     this.setState({editorState: newState});
-    previewMD(newState.getCurrentContent());
   }
 
   _handleKeyCommand(command) {
@@ -36,6 +35,7 @@ export default class MDEditor extends Component {
           textToInsert(command)
         )
       )});
+      if (command === '\n') previewMD(editorState.getCurrentContent());
       return true;
     }
     return false;
