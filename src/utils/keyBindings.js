@@ -13,7 +13,7 @@ export function insertMDchars(key: SyntheticKeyboardEvent): string {
       case B:   return BOLD;
       case I:   return ITALIC;
       case H:   return HEADER;
-      default:  break;
+      default:  /* nothing */
     }
   return getDefaultKeyBinding(key);
 }
