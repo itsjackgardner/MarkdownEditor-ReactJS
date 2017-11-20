@@ -8,15 +8,23 @@ body {
   margin-right: 50px;
 }
 
-a {
-  text-decoration: underline;
+a { text-decoration: underline; }
+
+.container {
+  margin-top: 50px;
+  width: 100%;
 }
 
 #header {
   font-family: 'Cormorant Garamond', serif;
   font-size: 50px;
+  margin-bottom: 35px;
 }
 
 #editor_container, #preview_container {
-  margin-top: 50px;
+  float: left;
+  width: 50%;
+  display: inline-block;
 }
+
+#preview_container { margin-top: -29px; }
