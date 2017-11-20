@@ -8,14 +8,15 @@ export default class Header extends Component {
   }
 
   _onPress(e) {
-    // eslint-disable-next-line
-    var line1 = markdown.toHTML("**Bold**: \\*\\*text\*\* | \\_\\_text\_\_ | cmd-b"),
-    // eslint-disable-next-line
-        line2 = markdown.toHTML("_Italics_: \\*text\* | \\_text\_ | cmd-i"),
-    // eslint-disable-next-line
-        line3 = markdown.toHTML("# Header: # text | cmd-x");
+    var lines = [
+      markdown.toHTML("\\* and _ are interchangeable"),
+      markdown.toHTML("**Bold**: \\*\\*text\\*\\* | cmd-b  "),
+      markdown.toHTML("_Italics_: \\_text\\_ | cmd-i"),
+      markdown.toHTML("# Header: # text | cmd-x")
+    ];
     var preview = document.getElementById('preview_container');
-    preview.innerHTML = line1 + line2 + line3;
+    preview.innerHTML = '';
+    for (let line of lines) preview.innerHTML += line;
   }
 
   render() {

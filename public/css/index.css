@@ -3,9 +3,6 @@
 body {
   font-family: 'Proza Libre', sans-serif;
   font-size: 30px;
-  margin-left: 50px;
-  margin-top: 50px;
-  margin-right: 50px;
 }
 
 a {
@@ -15,8 +12,20 @@ a {
 #header {
   font-family: 'Cormorant Garamond', serif;
   font-size: 50px;
+  width: 100%;
+  margin: 50px;
 }
 
 #editor_container, #preview_container {
-  margin-top: 50px;
+  display: inline-block;
+  float: left;
 }
+
+#container {
+  margin: 50px;
+  width: 100%:
+}
+
+#preview_container { margin-top: -25px; }
+
+#editor_container, #preview_container { width: 50%; }
