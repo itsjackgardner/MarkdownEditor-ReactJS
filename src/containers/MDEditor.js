@@ -27,13 +27,17 @@ export default class MDEditor extends Component {
 
   _handleKeyCommand(command) {
     const { editorState } = this.state;
-    if (commands.indexOf(command) !== -1) {
-      let index = textToInsert(command).length/2;
+    var index = commands.indexOf(command);
+    if (index !== -1 && index < 2) {
+      index = textToInsert(command).length/2;
       var newState = appendText(editorState, textToInsert(command).substring(0, index));
       const newSelection = newState.getSelection();
       newState = appendText(newState, textToInsert(command).substring(index));
       newState = EditorState.forceSelection(newState, newSelection);
       this.setState({editorState: newState});
+      return true;
+    } else if (index !== -1) {
+      this.setState({editorState: appendText(editorState, textToInsert(command))});
       return true;
     }
     return false;

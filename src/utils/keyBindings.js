@@ -2,10 +2,13 @@ import { getDefaultKeyBinding, KeyBindingUtil } from 'draft-js';
 
 const { hasCommandModifier } = KeyBindingUtil;
 
-const [B, I, H] = [66, 73, 72];
-const BOLD = '****';
-const ITALIC = '__';
-const HEADER = '# ';
+const B = 66,
+      I = 73,
+      H = 88;
+
+const BOLD   = '****',
+      ITALIC = '__',
+      HEADER = '# ';
 
 export function insertMDchars(key: SyntheticKeyboardEvent): string {
   if (hasCommandModifier(key))

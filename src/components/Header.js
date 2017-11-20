@@ -13,7 +13,7 @@ export default class Header extends Component {
     // eslint-disable-next-line
         line2 = markdown.toHTML("_Italics_: \\*text\* | \\_text\_ | cmd-i"),
     // eslint-disable-next-line
-        line3 = markdown.toHTML("# Header: # text");
+        line3 = markdown.toHTML("# Header: # text | cmd-x");
     var preview = document.getElementById('preview_container');
     preview.innerHTML = line1 + line2 + line3;
   }
