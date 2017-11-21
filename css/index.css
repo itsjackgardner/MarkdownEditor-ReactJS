@@ -3,20 +3,26 @@
 body {
   font-family: 'Proza Libre', sans-serif;
   font-size: 30px;
-  margin-left: 50px;
-  margin-top: 50px;
-  margin-right: 50px;
+  margin: 50px;
 }
 
-a {
-  text-decoration: underline;
+a { text-decoration: underline; }
+
+.container {
+  margin-top: 50px;
+  width: 100%;
 }
 
 #header {
   font-family: 'Cormorant Garamond', serif;
   font-size: 50px;
+  margin-bottom: 35px;
 }
 
 #editor_container, #preview_container {
-  margin-top: 50px;
+  float: left;
+  display: inline-block;
 }
+
+#editor_container, #preview_container { width: 50%; }
+#preview_container { margin-top: -29px; }
