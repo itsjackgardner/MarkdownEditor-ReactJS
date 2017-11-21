@@ -3,26 +3,33 @@
 body {
   font-family: 'Proza Libre', sans-serif;
   font-size: 30px;
-  margin: 50px;
+  margin: 30px;
 }
 
-a { text-decoration: underline; }
+a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.divider {
+  border-left: 3px solid black;
+  height: 85%;
+  width: 2%;
+  top: 110px;
+  position: absolute;
+  float: left;
+}
 
 .container {
-  margin-top: 50px;
+  margin-top: 30px;
   width: 100%;
 }
 
 #header {
   font-family: 'Cormorant Garamond', serif;
   font-size: 50px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
-#editor_container, #preview_container {
-  float: left;
-  display: inline-block;
-}
-
-#editor_container, #preview_container { width: 50%; }
+#editor_container, #preview_container { float: left; }
 #preview_container { margin-top: -29px; }

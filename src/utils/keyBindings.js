@@ -2,10 +2,12 @@ import { getDefaultKeyBinding, KeyBindingUtil } from 'draft-js';
 
 const { hasCommandModifier } = KeyBindingUtil;
 
+// Keys
 const B = 66,
       I = 73,
-      H = 88;
+      X = 88;
 
+// Strings to insert
 const BOLD   = '****',
       ITALIC = '__',
       HEADER = '# ';
@@ -15,7 +17,7 @@ export function insertMDchars(key: SyntheticKeyboardEvent): string {
     switch (key.keyCode) {
       case B:   return BOLD;
       case I:   return ITALIC;
-      case H:   return HEADER;
+      case X:   return HEADER;
       default:  /* nothing */
     }
   return getDefaultKeyBinding(key);
@@ -24,4 +26,5 @@ export function insertMDchars(key: SyntheticKeyboardEvent): string {
 // Best function
 export function textToInsert(str: string) { return str; }
 
+// Available commands
 export const commands = [BOLD, ITALIC, HEADER];
