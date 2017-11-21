@@ -12,3 +12,10 @@ Supports various keyboard commands:
  - react-dom
  - draft-js
  - markdown-js
+
+## TODO:
+
+ - Better UI
+  - Divider between editor and preview
+  - Improved Help
+ - Saving (downloading) file to computer
