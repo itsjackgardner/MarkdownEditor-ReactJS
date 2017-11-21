@@ -16,6 +16,5 @@ Supports various keyboard commands:
 ## TODO:
 
 - Better UI
-  - Divider between editor and preview
-  - Improved Help
-- Saving (downloading) file to computer
+  - Better margins/spacing
+- Improved Help
