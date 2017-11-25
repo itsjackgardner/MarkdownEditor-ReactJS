@@ -16,5 +16,4 @@ Supports various keyboard commands:
 ## TODO:
 
 - Better UI
-  - Better margins/spacing
 - Improved Help

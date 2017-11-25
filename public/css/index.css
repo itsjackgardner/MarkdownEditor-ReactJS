@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Proza Libre', sans-serif;
-  font-size: 30px;
+  font-size: 23px;
   margin: 30px;
 }
 
@@ -11,13 +11,17 @@ a {
   cursor: pointer;
 }
 
+#header {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
 .divider {
   border-left: 3px solid black;
-  height: 85%;
-  width: 2%;
-  top: 110px;
-  position: absolute;
-  float: left;
+  margin-top: -30px;
+  margin-bottom: 0px;
+  height: 800px;
 }
 
 .container {
@@ -25,11 +29,5 @@ a {
   width: 100%;
 }
 
-#header {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-
-#editor_container, #preview_container { float: left; }
+#editor_container, #preview_container, .divider { float: left; }
 #preview_container { margin-top: -29px; }

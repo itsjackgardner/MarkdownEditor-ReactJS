@@ -32,11 +32,11 @@ export default class Header extends Component {
         divider = document.getElementById('middle');
     if (!show) {
       editor.setAttribute('style', "width: 50%; display: inline-block;");
-      divider.setAttribute('style', "display: inline-block;");
-      preview.setAttribute('style', "width: 48%; display: inline-block;");
+      divider.setAttribute('style', "width: 2%; display: inline-block;");
+      preview.setAttribute('style', "width: 40%; display: inline-block;");
     } else {
       editor.setAttribute('style', "width: 100%; display: inline-block;");
-      divider.setAttribute('style', "display: none;");
+      divider.setAttribute('style', "width: 0%; display: none;");
       preview.setAttribute('style', "width: 0%; display: none;");
     }
     this.setState({show: !show, previewText: show ? 'Show' : 'Hide'});
