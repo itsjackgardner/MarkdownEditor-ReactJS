@@ -1,6 +1,6 @@
 # Markdown Editor
 
-A simple markdown editor for making quick notes.  
+A simple markdown editor made using Javascript w/ React.
 Supports various keyboard commands:
 - cmd-b: bold
 - cmd-i: italic
