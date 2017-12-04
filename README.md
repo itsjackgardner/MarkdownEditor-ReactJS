@@ -7,6 +7,9 @@ Supports various keyboard commands:
 - cmd-i: italic
 - cmd-x: header 1
 
+Select multiple fonts using a drop down menu.  
+WARNING: Just doesn't work very well
+
 ## Dependencies:
 
 - react
@@ -16,5 +19,6 @@ Supports various keyboard commands:
 
 ## TODO:
 
+- Altering selected text - highlighting and using a command = bad news
 - Better UI
 - Improved Help
