@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Proza+Libre');
-
 body {
-  font-family: 'Proza Libre', sans-serif;
-  font-size: 23px;
   margin: 30px;
+  font-size: 23px;
 }
 
 a {
@@ -12,8 +9,8 @@ a {
 }
 
 #header {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 50px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 
@@ -25,9 +22,37 @@ a {
 }
 
 .container {
+  font-family: 'Proza Libre', sans-serif;
   margin-top: 30px;
   width: 100%;
 }
 
 #editor_container, #preview_container, .divider { float: left; }
 #preview_container { margin-top: -29px; }
+
+.dropbtn {
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-options {
+  position: absolute;
+  min-width: 275px;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  display: none;
+}
+
+.menu-options a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-options a:hover { background-color: #f1f1f1; }
