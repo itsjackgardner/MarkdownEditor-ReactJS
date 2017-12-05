@@ -9,6 +9,7 @@ export default class Header extends Component {
       show: false,
       previewText: 'Show',
     };
+    this.fonts = ['serif', 'sans-serif', 'monospace', 'cursive', 'funky'];
     this.helpPress    = (e) => this._showHelp(e);
     this.previewPress = (e) => this._showHidePreview(e);
     this.fontPress    = (e) => this._showFontOptions(e);
@@ -24,7 +25,7 @@ export default class Header extends Component {
     var preview = document.getElementById('preview_container');
     preview.innerHTML = '';
     for (let line of lines) preview.innerHTML += line;
-    if (!this.state.show) this.showHidePreview();
+    if (!this.state.show) this._showHidePreview();
   }
 
   _showHidePreview(e) {
@@ -61,21 +62,13 @@ export default class Header extends Component {
       "font-family: 'Great Vibes', cursive;       font-size: 40px;",
       "font-family: 'Megrim', cursive;            font-size: 23px;",
     ]
-    switch(font) {
-      case 'serif':      container.setAttribute('style', options[0]); break;
-      case 'sans-serif': container.setAttribute('style', options[1]); break;
-      case 'monospace':  container.setAttribute('style', options[2]); break;
-      case 'cursive':    container.setAttribute('style', options[3]); break;
-      case 'funky':      container.setAttribute('style', options[4]); break;
-      default:           /* nothing */
-    }
+    container.setAttribute('style', options[this.fonts.indexOf(font)]);
   }
 
   render() {
     var fontOptions = [];
-    for (let font of ['serif', 'sans-serif', 'monospace', 'cursive', 'funky']) {
+    for (let font of this.fonts)
       fontOptions.push(<a onClick={(e) => this.changeFont(font)} value={font}>{font}</a>);
-    }
     return (
       <div>
         Markdown Editor: <a onClick={this.helpPress}>Help</a> <a onClick={this.previewPress}>{this.state.previewText} Preview</a> <div class="dropdown">
