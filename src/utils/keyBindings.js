@@ -15,10 +15,10 @@ const BOLD   = '****',
 export function insertMDchars(key: SyntheticKeyboardEvent): string {
   if (hasCommandModifier(key))
     switch (key.keyCode) {
-      case B:   return BOLD;
-      case I:   return ITALIC;
-      case X:   return HEADER;
-      default:  /* nothing */
+      case B:  return BOLD;
+      case I:  return ITALIC;
+      case X:  return HEADER;
+      default: /* nothing */
     }
   return getDefaultKeyBinding(key);
 }
