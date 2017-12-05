@@ -29,10 +29,24 @@ export default class MDEditor extends Component {
     const { editorState } = this.state;
     var index = commands.indexOf(command);
     if (index !== -1 && index < 2) {
-      index = textToInsert(command).length / 2;
-      let appendState = appendText(editorState, textToInsert(command).substring(0, index));
-      let finalState = appendText(appendState, textToInsert(command).substring(index));
-      this.setState({editorState: EditorState.forceSelection(finalState, appendState.getSelection())});
+      let content   = editorState.getCurrentContent(),
+          selection = editorState.getSelection();
+      let half  = textToInsert(command).length / 2,
+          front = textToInsert(command).substring(0, half),
+          back  = textToInsert(command).substring(half);
+      if (selection.isCollapsed()) {
+        let appendState = appendText(editorState, content, selection, front);
+        let finalState = appendText(appendState, appendState.getCurrentContent(), appendState.getSelection(), back);
+        this.setState({editorState: EditorState.forceSelection(finalState, appendState.getSelection())});
+      } else {
+        let block = content.getBlockForKey(selection.getAnchorKey()),
+            start = selection.getStartOffset(),
+            end   = selection.getEndOffset();
+        let selectedText = block.getText().slice(start, end);
+        let newText = front + selectedText + back;
+        let finalState = appendText(editorState, content, selection, newText);
+        this.setState({editorState: finalState});
+      }
       return true;
     } else if (index !== -1) {
       this.setState({editorState: appendText(editorState, textToInsert(command))});
@@ -56,13 +70,14 @@ export default class MDEditor extends Component {
   }
 }
 
-function appendText(editorState, text): EditorState {
+function appendText(editorState, content, selection, text): EditorState {
   return EditorState.push(
     editorState,
-    Modifier.insertText(
-      editorState.getCurrentContent(),
-      editorState.getSelection(),
+    Modifier.replaceText(
+      content,
+      selection,
       text
-    )
+    ),
+    'insert-characters'
   );
 }
