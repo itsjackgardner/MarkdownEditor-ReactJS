@@ -18,7 +18,6 @@ export default class MDEditor extends Component {
     this.onChange = (editorState) => this._onChange(editorState);
     this.handleKeyCommand = (command) => this._handleKeyCommand(command);
     this.keyBindingFn = (key) => insertMDchars(key);
-    this.handleClick = (e) => this._removeMenu(e);
   }
 
   _onChange(newState) {
@@ -31,9 +30,9 @@ export default class MDEditor extends Component {
     var index = commands.indexOf(command);
     if (index !== -1 && index < 2) {
       index = textToInsert(command).length / 2;
-      let appendedState = appendText(editorState, textToInsert(command).substring(0, index));
-      let finalState = appendText(appendedState, textToInsert(command).substring(index));
-      this.setState({editorState: EditorState.forceSelection(finalState, appendedState.getSelection())});
+      let appendState = appendText(editorState, textToInsert(command).substring(0, index));
+      let finalState = appendText(appendState, textToInsert(command).substring(index));
+      this.setState({editorState: EditorState.forceSelection(finalState, appendState.getSelection())});
       return true;
     } else if (index !== -1) {
       this.setState({editorState: appendText(editorState, textToInsert(command))});
@@ -42,13 +41,9 @@ export default class MDEditor extends Component {
     return false;
   }
 
-  _removeMenu(e) {
-    document.getElementById('font-options').setAttribute('style', "display: none;");
-  }
-
   render() {
     return (
-      <div className="editor" id="editor" onClick={this.handleClick}>
+      <div className="editor" id="editor">
         <Editor
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}

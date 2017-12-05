@@ -9,9 +9,9 @@ export default class Header extends Component {
       show: false,
       previewText: 'Show',
     };
-    this.helpPress = (e) => this._showHelp(e);
+    this.helpPress    = (e) => this._showHelp(e);
     this.previewPress = (e) => this._showHidePreview(e);
-    this.fontPress = (e) => this._showFontOptions(e);
+    this.fontPress    = (e) => this._showFontOptions(e);
   }
 
   _showHelp(e) {
@@ -67,6 +67,7 @@ export default class Header extends Component {
       case 'monospace':  container.setAttribute('style', options[2]); break;
       case 'cursive':    container.setAttribute('style', options[3]); break;
       case 'funky':      container.setAttribute('style', options[4]); break;
+      default:           /* nothing */
     }
   }
 

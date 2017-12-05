@@ -7,9 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Proza+Libre|Roboto+Mono|Share+Tech+Mono|Great+Vibes|Megrim" rel="stylesheet">
     <link href="css/Draft.css" rel="stylesheet" href="text/css">
     <link href="css/index.css" rel="stylesheet" href="text/css">
-    <link href="css/popup.css" rel="stylesheet" href="text/css">
   </head>
-  <body>
+  <body onclick="hideMenu()">
     <div id="header"></div>
     <HR align="left" width="100%" color="black" size="3" noshade>
     <div class="container">
@@ -18,4 +17,9 @@
       <div id="preview_container" style="width: 0%; display: none;"></div>
     </div>
   </body>
+  <script>
+    function hideMenu() {
+      document.getElementById('font-options').setAttribute('style', "display: none;");
+    }
+  </script>
 </html>
