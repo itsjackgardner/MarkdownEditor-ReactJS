@@ -4,7 +4,11 @@ body {
 }
 
 @media (min-width: 320px) {
-  .container {
+  #header,
+  HR,
+  .container,
+  #editor_container,
+  #preview_container {
     display: none;
   }
 }
