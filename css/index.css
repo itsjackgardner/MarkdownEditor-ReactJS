@@ -5,7 +5,6 @@ body {
 
 @media (min-width: 320px) {
   #header,
-  HR,
   .container,
   #editor_container,
   #preview_container {
@@ -17,6 +16,13 @@ body {
 
   #mobile_warning {
     display: none;
+  }
+
+  #header,
+  .container,
+  #editor_container,
+  #preview_container {
+    display: inline-block;
   }
 
   a {
