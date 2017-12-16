@@ -14,21 +14,27 @@ a {
   margin-bottom: 20px;
 }
 
-.divider {
-  border-left: 3px solid black;
-  margin-top: -30px;
-  margin-bottom: 0px;
-  height: 800px;
-}
-
 .container {
   font-family: 'Proza Libre', sans-serif;
   margin-top: 30px;
   width: 100%;
 }
 
-#editor_container, #preview_container, .divider { float: left; }
 #preview_container { margin-top: -29px; }
+
+@media (min-width: 641px) {
+  .divider {
+    border-left: 3px solid black;
+    margin-top: -30px;
+    margin-bottom: 0px;
+    height: 800px;
+  }
+  #editor_container,
+  #preview_container,
+  .divider {
+    float: left;
+  }
+}
 
 .dropbtn {
   border: none;
