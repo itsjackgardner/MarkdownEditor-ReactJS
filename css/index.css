@@ -3,6 +3,12 @@ body {
   font-size: 23px;
 }
 
+@media (min-width: 320px) {
+  .container {
+    display: none;
+  }
+}
+
 @media (min-width: 641px) {
 
   #mobile_warning {
