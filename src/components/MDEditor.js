@@ -79,7 +79,7 @@ export default class MDEditor extends Component {
   }
 }
 
-function appendText(editorState, content, selection, text): EditorState {
+function appendText(editorState, content, selection, text) {
   return EditorState.push(
     editorState,
     Modifier.replaceText(
