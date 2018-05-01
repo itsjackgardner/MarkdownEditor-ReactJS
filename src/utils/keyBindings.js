@@ -12,7 +12,7 @@ const BOLD   = '****',
       ITALIC = '__',
       HEADER = '# ';
 
-export function insertMDchars(key: SyntheticKeyboardEvent): string {
+export function insertMDchars(key) {
   if (hasCommandModifier(key))
     switch (key.keyCode) {
       case B:  return BOLD;
@@ -23,8 +23,10 @@ export function insertMDchars(key: SyntheticKeyboardEvent): string {
   return getDefaultKeyBinding(key);
 }
 
-// Best function
-export function textToInsert(str: string) { return str; }
+// Definitely required function
+export function textToInsert(str) {
+  return str;
+}
 
 // Available commands
 export const commands = [BOLD, ITALIC, HEADER];

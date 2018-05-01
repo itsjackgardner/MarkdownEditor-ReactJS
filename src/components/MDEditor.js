@@ -26,18 +26,34 @@ export default class MDEditor extends Component {
   }
 
   _handleKeyCommand(command) {
+
     const { editorState } = this.state;
     var index = commands.indexOf(command);
     var content   = editorState.getCurrentContent(),
         selection = editorState.getSelection();
+
     if (index !== -1 && index < 2) {
+
       let half  = textToInsert(command).length / 2,
           front = textToInsert(command).substring(0, half),
           back  = textToInsert(command).substring(half);
+
       if (selection.isCollapsed()) {
-        let appendState = appendText(editorState, content, selection, front);
-        let finalState = appendText(appendState, appendState.getCurrentContent(), appendState.getSelection(), back);
-        this.setState({editorState: EditorState.forceSelection(finalState, appendState.getSelection())});
+        let appendState = appendText(
+          editorState,
+          content,
+          selection,
+          front
+        );
+        let finalState = appendText(
+          appendState,
+          appendState.getCurrentContent(),
+          appendState.getSelection(),
+          back
+        );
+        this.setState({
+          editorState: EditorState.forceSelection(finalState, appendState.getSelection())
+        });
       } else {
         let block = content.getBlockForKey(selection.getAnchorKey()),
             start = selection.getStartOffset(),
@@ -47,17 +63,33 @@ export default class MDEditor extends Component {
         let finalState = appendText(editorState, content, selection, newText);
         this.setState({editorState: finalState});
       }
+
       return true;
+
     } else if (index !== -1) {
       if (selection.isCollapsed()) {
-        this.setState({editorState: appendText(editorState, content, selection, textToInsert(command))});
+        this.setState({
+          editorState: appendText(
+            editorState,
+            content,
+            selection,
+            textToInsert(command)
+          )
+        });
       } else {
         let block = content.getBlockForKey(selection.getAnchorKey()),
             start = selection.getStartOffset(),
             end   = selection.getEndOffset();
         let selectedText = block.getText().slice(start, end);
         let newText = textToInsert(command) + selectedText;
-        this.setState({editorState: appendText(editorState, content, selection, newText)});
+        this.setState({
+          editorState: appendText(
+            editorState,
+            content,
+            selection,
+            newText
+          )
+        });
       }
       return true;
     }

@@ -1,11 +1,10 @@
-import { ContentState } from 'draft-js';
 import { markdown } from 'markdown';
 
-function convertToMD(content: ContentState): string {
+function convertToMD(content) {
   return markdown.toHTML(content.getPlainText());
 }
 
-export default function previewMD(content: ContentState) {
+export default function previewMD(content) {
   var preview = document.getElementById('preview_container');
   preview.innerHTML = convertToMD(content);
 }
