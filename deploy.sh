@@ -7,8 +7,7 @@ npm run deploy
 git add .
 
 # Ask for commit message
-echo "Enter commit message: "
-read msg
+read -p "Enter commit message: " msg
 
 # Commit and push
 git commit -m $msg
