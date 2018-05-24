@@ -1,6 +1,6 @@
 # Markdown Editor
 
-[Testable here](http://jackyboi.github.io/MarkdownEditor-ReactJS)
+[Testable here](http://gardnerjack.github.io/MarkdownEditor-ReactJS)
 
 A simple markdown editor made using Javascript w/ React.
 
