@@ -2,9 +2,11 @@
   "name": "markdowneditor-reactjs",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "dependencies": {
     "draft-js": "^0.10.4",
     "markdown": "^0.5.0",
+    "npm": "^6.1.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-popup": "^0.8.0",
@@ -16,10 +18,12 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "electron": "electron ."
   },
   "homepage": "http://gardnerjack.github.io/MarkdownEditor-ReactJS",
   "devDependencies": {
+    "electron": "^2.0.2",
     "gh-pages": "^1.1.0"
   }
 }

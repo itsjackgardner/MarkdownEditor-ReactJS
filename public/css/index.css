@@ -1,6 +1,6 @@
 body {
   margin: 30px;
-  font-size: 23px;
+  font-size: 18px;
 }
 
 a {
@@ -10,8 +10,9 @@ a {
 
 #header {
   font-family: 'Roboto Mono', monospace;
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 20px;
+  user-select: none;
 }
 
 .container {
