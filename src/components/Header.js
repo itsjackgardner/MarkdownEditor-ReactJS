@@ -10,22 +10,8 @@ export default class Header extends Component {
       previewText: 'Show',
     };
     this.fonts = ['serif', 'sans-serif', 'monospace', 'cursive', 'funky'];
-    this.helpPress    = (e) => this._showHelp(e);
     this.previewPress = (e) => this._showHidePreview(e);
     this.fontPress    = (e) => this._showFontOptions(e);
-  }
-
-  _showHelp(e) {
-    var lines = [
-      markdown.toHTML("\\* and _ are interchangeable"),
-      markdown.toHTML("**Bold**: \\*\\*text\\*\\* | cmd-b  "),
-      markdown.toHTML("_Italics_: \\_text\\_ | cmd-i"),
-      markdown.toHTML("# Header: # text | cmd-x")
-    ];
-    var preview = document.getElementById('preview_container');
-    preview.innerHTML = '';
-    for (let line of lines) preview.innerHTML += line;
-    if (!this.state.show) this._showHidePreview();
   }
 
   _showHidePreview(e) {
@@ -71,7 +57,7 @@ export default class Header extends Component {
       fontOptions.push(<a onClick={(e) => this.changeFont(font)} value={font}>{font}</a>);
     return (
       <div>
-        Markdown Editor: <a onClick={this.helpPress}>Help</a> <a onClick={this.previewPress}>{this.state.previewText} Preview</a> <div class="dropdown">
+        Markdown Editor <a onClick={this.previewPress}>{this.state.previewText} Preview</a> <div class="dropdown">
           <a onClick={this.fontPress} class="dropbtn">Fonts <i class="fa fa-caret-down"></i></a>
           <div class="menu-options" id="font-options">
             {fontOptions}

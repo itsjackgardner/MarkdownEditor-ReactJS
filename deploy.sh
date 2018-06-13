@@ -1,4 +1,4 @@
-#1/bin/bash
+#!/bin/bash
 
 # Deploy to gh-pages
 npm run deploy
