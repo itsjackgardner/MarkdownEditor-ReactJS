@@ -2,9 +2,9 @@
   "name": "markdowneditor-reactjs",
   "version": "0.1.0",
   "private": true,
-  "main": "main.js",
   "dependencies": {
     "draft-js": "^0.10.4",
+    "electron-is-dev": "^0.3.0",
     "markdown": "^0.5.0",
     "npm": "^6.1.0",
     "react": "^16.1.1",
@@ -12,6 +12,15 @@
     "react-popup": "^0.8.0",
     "react-scripts": "1.0.17"
   },
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "electron": "^2.0.2",
+    "electron-builder": "^20.19.1",
+    "gh-pages": "^1.1.0",
+    "wait-on": "^2.1.0"
+  },
+  "main": "public/electron.js",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -19,11 +28,19 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "electron": "electron ."
+    "electron-build": "electron-builder",
+    "electron-dev": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "prepack": "npm run build",
+    "pack": "npm run electron-build"
   },
-  "homepage": "http://gardnerjack.github.io/MarkdownEditor-ReactJS",
-  "devDependencies": {
-    "electron": "^2.0.2",
-    "gh-pages": "^1.1.0"
+  "build": {
+    "appId": "com.markdowneditor",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   }
 }
