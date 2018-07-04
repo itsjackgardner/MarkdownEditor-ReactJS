@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { markdown } from 'markdown';
 
 export default class Header extends Component {
   constructor() {
