@@ -6,29 +6,9 @@ export default class Header extends Component {
     super();
     this.state = {
       fonts: false,
-      show: false,
-      previewText: 'Show',
     };
     this.fonts = ['serif', 'sans-serif', 'monospace', 'cursive', 'funky'];
-    this.previewPress = (e) => this._showHidePreview(e);
-    this.fontPress    = (e) => this._showFontOptions(e);
-  }
-
-  _showHidePreview(e) {
-    var show = this.state.show;
-    var editor  = document.getElementById('editor_container'),
-        preview = document.getElementById('preview_container'),
-        divider = document.getElementById('middle');
-    if (!show) {
-      editor.setAttribute('style', "width: 50%; display: inline-block;");
-      divider.setAttribute('style', "width: 2%; display: inline-block;");
-      preview.setAttribute('style', "width: 40%; display: inline-block;");
-    } else {
-      editor.setAttribute('style', "width: 100%; display: inline-block;");
-      divider.setAttribute('style', "width: 0%; display: none;");
-      preview.setAttribute('style', "width: 0%; display: none;");
-    }
-    this.setState({show: !show, previewText: show ? 'Show' : 'Hide'});
+    this.fontPress = (e) => this._showFontOptions(e);
   }
 
   _showFontOptions(e) {
@@ -57,7 +37,7 @@ export default class Header extends Component {
       fontOptions.push(<a onClick={(e) => this.changeFont(font)} value={font}>{font}</a>);
     return (
       <div>
-        Markdown Editor <a onClick={this.previewPress}>{this.state.previewText} Preview</a> <div class="dropdown">
+        <div class="dropdown">
           <a onClick={this.fontPress} class="dropbtn">Fonts <i class="fa fa-caret-down"></i></a>
           <div class="menu-options" id="font-options">
             {fontOptions}

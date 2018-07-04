@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SplitPane from 'react-split-pane';
+import Markdown from 'react-markdown';
 import {
   Editor,
   EditorState,
@@ -9,12 +11,13 @@ import {
   textToInsert,
   commands
 } from '../utils/keyBindings.js';
-import previewMD from '../utils/convertToMD.js';
 
 export default class MDEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = {editorState: EditorState.createEmpty()};
+    this.state = {
+      editorState: EditorState.createEmpty()
+    };
     this.onChange = (editorState) => this._onChange(editorState);
     this.handleKeyCommand = (command) => this._handleKeyCommand(command);
     this.keyBindingFn = (key) => insertMDchars(key);
@@ -22,7 +25,7 @@ export default class MDEditor extends Component {
 
   _onChange(newState) {
     this.setState({editorState: newState});
-    previewMD(newState.getCurrentContent());
+    //previewMD(newState.getCurrentContent());
   }
 
   _handleKeyCommand(command) {
@@ -97,15 +100,24 @@ export default class MDEditor extends Component {
   }
 
   render() {
+    const { editorState } = this.state;
+
     return (
-      <div className="editor" id="editor">
-        <Editor
-          editorState={this.state.editorState}
-          handleKeyCommand={this.handleKeyCommand}
-          onChange={this.onChange}
-          keyBindingFn={this.keyBindingFn}
-          placeholder="Write something ... "
-        />
+      <div className="app">
+        <SplitPane split="vertical" defaultSize="50%">
+          <div className="editor">
+            <Editor
+              editorState={this.state.editorState}
+              handleKeyCommand={this.handleKeyCommand}
+              onChange={this.onChange}
+              keyBindingFn={this.keyBindingFn}
+              placeholder="Write something ... "
+            />
+          </div>
+          <div className="preview">
+            <Markdown source={editorState.getCurrentContent().getPlainText()}/>
+          </div>
+        </SplitPane>
       </div>
     );
   }
