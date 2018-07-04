@@ -8,7 +8,6 @@ import {
 } from 'draft-js';
 import {
   insertMDchars,
-  textToInsert,
   commands
 } from '../utils/keyBindings.js';
 
@@ -37,9 +36,9 @@ export default class MDEditor extends Component {
 
     if (index !== -1 && index < 2) {
 
-      let half  = textToInsert(command).length / 2,
-          front = textToInsert(command).substring(0, half),
-          back  = textToInsert(command).substring(half);
+      let half  = command.length / 2,
+          front = command.substring(0, half),
+          back  = command.substring(half);
 
       if (selection.isCollapsed()) {
         let appendState = appendText(
@@ -64,7 +63,9 @@ export default class MDEditor extends Component {
         let selectedText = block.getText().slice(start, end);
         let newText = front + selectedText + back;
         let finalState = appendText(editorState, content, selection, newText);
-        this.setState({editorState: finalState});
+        this.setState({
+          editorState: finalState
+        });
       }
 
       return true;
@@ -76,7 +77,7 @@ export default class MDEditor extends Component {
             editorState,
             content,
             selection,
-            textToInsert(command)
+            command
           )
         });
       } else {
@@ -84,7 +85,7 @@ export default class MDEditor extends Component {
             start = selection.getStartOffset(),
             end   = selection.getEndOffset();
         let selectedText = block.getText().slice(start, end);
-        let newText = textToInsert(command) + selectedText;
+        let newText = command + selectedText;
         this.setState({
           editorState: appendText(
             editorState,
