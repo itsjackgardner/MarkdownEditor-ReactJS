@@ -2,18 +2,20 @@
 
 [Testable here](http://gardnerjack.github.io/MarkdownEditor-ReactJS)
 
-A simple markdown editor made using Javascript w/ React.
+A simple markdown editor made using Javascript w/ React.  
+Underconstruction.
+
+Electron app coming.
 
 Supports various keyboard commands:
 - cmd-b: bold
 - cmd-i: italic
 - cmd-x: header 1
 
-Side preview and multiple fonts (selectable through a drop-down menu).
-
 ## Dependencies:
 
 - react
 - react-dom
 - draft-js
-- markdown-js
+- react-markdown
+- react-split-pane
