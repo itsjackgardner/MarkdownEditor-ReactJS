@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 
 export default class Header extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    var fontHTMLOptions = [];
+    for (let font of this.fonts) {
+      fontHTMLOptions.push(<a onClick={_ => this.changeFont(font)} value={font}>{font}</a>);
+    }
     this.state = {
       fonts: false,
+      fontOptions: fontHTMLOptions,
     };
     this.fonts = ['serif', 'sans-serif', 'monospace', 'cursive', 'funky'];
     this.fontPress = (e) => this._showFontOptions(e);
@@ -31,15 +36,12 @@ export default class Header extends Component {
   }
 
   render() {
-    var fontOptions = [];
-    for (let font of this.fonts)
-      fontOptions.push(<a onClick={(e) => this.changeFont(font)} value={font}>{font}</a>);
     return (
       <div>
         <div class="dropdown">
           <a onClick={this.fontPress} class="dropbtn">Fonts <i class="fa fa-caret-down"></i></a>
           <div class="menu-options" id="font-options">
-            {fontOptions}
+            {this.state.fontOptions}
           </div>
         </div>
       </div>

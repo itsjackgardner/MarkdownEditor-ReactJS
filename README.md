@@ -3,9 +3,7 @@
 [Testable here](http://gardnerjack.github.io/MarkdownEditor-ReactJS)
 
 A simple markdown editor made using Javascript w/ React.  
-Underconstruction.
-
-Electron app coming.
+Just for learning the basics of React.
 
 Supports various keyboard commands:
 - cmd-b: bold
