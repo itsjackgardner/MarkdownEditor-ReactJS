@@ -10,7 +10,7 @@
     "react-dom": "^16.1.1",
     "react-markdown": "^3.3.4",
     "react-popup": "^0.8.0",
-    "react-scripts": "1.0.17",
+    "react-scripts": "5.0.1",
     "react-split-pane": "^0.1.81"
   },
   "devDependencies": {
